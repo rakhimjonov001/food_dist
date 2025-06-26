@@ -111,6 +111,7 @@ genderBtns.forEach(btn => {
         genderBtns.forEach(el => el.classList.remove("calculating__choose-item_active"))
         btn.classList.add("calculating__choose-item_active")
         userData.gender = btn.getAttribute("data-gender")
+        calcKkal(userData)
 
     })
 
