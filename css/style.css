@@ -347,13 +347,13 @@ a {
   object-fit: cover
 }
 
-.calculating {
+.calculating {                                    
   padding: 50px 0
 }
 
 .calculating .title {
   text-align: center
-}
+}  
 
 .calculating__field {
   width: 100%;
