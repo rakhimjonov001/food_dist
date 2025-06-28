@@ -1,3 +1,4 @@
+
 const tabheader = document.querySelectorAll(".tabheader__item")
 const tabcontent = document.querySelectorAll(".tabcontent")
 
@@ -162,5 +163,72 @@ function calcKkal(data) {
 }
 
 
+const deadline = "2025-06-29 18:16"
+
+
+
+function getTimer(endTime) {
+    const t = Date.parse(endTime) - Date.parse(new Date)
+    const days = Math.floor(t / 1000 / 60 / 60 / 24)
+    const hours = Math.floor(t / 1000 / 60 / 60 % 24)
+    const minutes = Math.floor(t / 1000 / 60 % 60)
+    const seconds = Math.floor(t / 1000 % 60)
+
+    return { t, days, hours, minutes, seconds }
+
+}
+
+function setTimer(endTime) {
+    const days = document.querySelector("#days")
+    const hours = document.querySelector("#hours")
+    const minutes = document.querySelector("#minutes")
+    const seconds = document.querySelector("#seconds")
+
+
+    function updateTimer() {
+        
+const t = getTimer(endTime)
+
+
+days.textContent = String(t.days).padStart(2, "0")
+hours.textContent = String(t.hours).padStart(2, "0")
+minutes.textContent = String(t.minutes).padStart(2, "0")
+seconds.textContent = String(t.seconds).padStart(2, "0")
+if (t.t < 0) {
+            clearInterval(interval)
+            days.textContent = "0".padStart(2, "0")
+hours.textContent = "0".padStart(2, "0")
+minutes.textContent = "0".padStart(2, "0")
+seconds.textContent = "0".padStart(2, "0")
+fireworks.start()
+setTimeout(() => {
+    fireworks.stop()
+}, 7000);
+        }
+
+
+    }
+
+    let interval = setInterval(updateTimer, 1000)
+
+}
+
+setTimer(deadline)
+
+console.log(getTimer(deadline));
+
+
+const container = document.getElementById('fireworks-container')
+  const fireworks = new Fireworks.default(container, {
+    autoresize: true,
+    opacity: 0.5,
+    acceleration: 1.05,
+    friction: 0.97,
+    gravity: 1.5,
+    particles: 50,
+    trace: 3,
+    explosion: 5,
+  })
+  
 
 
