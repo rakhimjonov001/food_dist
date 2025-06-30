@@ -163,7 +163,7 @@ function calcKkal(data) {
 }
 
 
-const deadline = "2025-06-29 18:20"
+const deadline = "2025-06-30 18:20"
 
 
 
